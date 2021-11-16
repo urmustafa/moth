@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'books_page.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -146,7 +148,6 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5,
-        onPressed: () => print('Login Pressed'),
         padding: EdgeInsets.all(15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         color: Colors.white,
@@ -157,6 +158,10 @@ class _LoginScreenState extends State<LoginScreen> {
               fontSize: 18,
               fontWeight: FontWeight.bold),
         ),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => BooksPage()));
+        },
       ),
     );
   }
