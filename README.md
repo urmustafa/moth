@@ -1,6 +1,6 @@
 # moth
 
-A new Flutter project.
+A Book Review Platform w/ Flutter Dart
 
 ## Getting Started
 
