@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
               children: [
                 CustomBanner(),
                 BookListView(
-                  title: 'YOUR CHOOSES',
+                  title: 'YOUR CHOICES',
                   books: [
                     '1984.jpg',
                     'aylak.jpg',
