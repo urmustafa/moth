@@ -17,9 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
         Text(
           'Email',
           style: TextStyle(
+            fontFamily: 'PermanentMarker',
             color: Colors.white,
             fontSize: 16,
-            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(height: 10),
@@ -61,9 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
         Text(
           'Password',
           style: TextStyle(
+            fontFamily: 'PermanentMarker',
             color: Colors.white,
             fontSize: 16,
-            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(height: 10),
@@ -135,7 +135,8 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Text(
             'Remember me',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style:
+                TextStyle(color: Colors.white, fontFamily: 'PermanentMarker'),
           ),
         ],
       ),
@@ -154,9 +155,10 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Text(
           'LOGIN',
           style: TextStyle(
-              color: Color(0xff5ac18e),
-              fontSize: 18,
-              fontWeight: FontWeight.bold),
+            fontFamily: 'PermanentMarker',
+            color: Color(0xff5ac18e),
+            fontSize: 18,
+          ),
         ),
         onPressed: () {
           Navigator.push(
@@ -199,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
-                            fontWeight: FontWeight.bold),
+                            fontFamily: 'PermanentMarker'),
                       ),
                       SizedBox(height: 50),
                       buildEmail(),

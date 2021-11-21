@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'comment_page.dart';
+
 class BooksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class Home extends StatelessWidget {
               children: [
                 CustomBanner(),
                 BookListView(
-                  title: 'YOUR CHOICES',
+                  title: 'YOUR CHOOSES',
                   books: [
                     '1984.jpg',
                     'aylak.jpg',
@@ -55,6 +57,24 @@ class Home extends StatelessWidget {
                     'secret.jpg',
                     'simdi.jpg',
                   ],
+                ),
+                RaisedButton(
+                  elevation: 5,
+                  padding: EdgeInsets.all(15),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                  color: Colors.white,
+                  child: Text(
+                    'COMMENT PAGE',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CommentPage()));
+                  },
                 ),
               ],
             )
@@ -106,7 +126,7 @@ class BookListView extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 16),
-            height: 200,
+            height: 180,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: books.length,
@@ -176,7 +196,7 @@ class CustomBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 50,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
