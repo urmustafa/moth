@@ -1,19 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'books_page.dart';
-import 'register.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<RegisterPage> {
   final _auth = FirebaseAuth.instance;
   late String email, password;
+
   bool isRememberMe = false;
 
   Widget buildEmail() {
@@ -112,30 +112,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget buildForgotPassBtn() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: RaisedButton(
-        elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        color: Colors.white,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => RegisterPage()));
-        },
-        padding: EdgeInsets.only(right: 0),
-        child: Text(
-          'Sign Up',
-          style: TextStyle(
-            fontFamily: 'PermanentMarker',
-            color: Color(0xff5ac18e),
-            fontSize: 15,
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget buildRememberCb() {
     return Container(
       height: 20,
@@ -174,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         color: Colors.white,
         child: Text(
-          'LOGIN',
+          'REGISTER',
           style: TextStyle(
             fontFamily: 'PermanentMarker',
             color: Color(0xff5ac18e),
@@ -183,14 +159,14 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         onPressed: () async {
           try {
-            final user = await _auth.signInWithEmailAndPassword(
+            final newUser = await _auth.createUserWithEmailAndPassword(
                 email: email, password: password);
-            if (user != null) {
-              Navigator.of(context).pushReplacement(
+            if (newUser != null) {
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => BooksPage()));
             }
           } catch (e) {
-            print('There is no user record');
+            print(e);
           }
         },
       ),
@@ -226,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Sign In',
+                        'Register',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
@@ -236,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       buildEmail(),
                       SizedBox(height: 20),
                       buildPassword(),
-                      buildForgotPassBtn(),
+                      SizedBox(height: 20),
                       buildRememberCb(),
                       buildLoginBtn(),
                     ],

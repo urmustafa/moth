@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'comment_page.dart';
+import 'login_page.dart';
 
 class BooksPage extends StatelessWidget {
   @override
@@ -10,7 +12,6 @@ class BooksPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BOOKS PAGE',
       theme: ThemeData(
-        fontFamily: 'PermanentMarker',
         iconTheme: IconThemeData(color: Colors.black, size: 40),
       ),
       home: Home(),
@@ -67,6 +68,7 @@ class Home extends StatelessWidget {
                   child: Text(
                     'COMMENT PAGE',
                     style: TextStyle(
+                        fontFamily: 'PermanentMarker',
                         color: Colors.black,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
@@ -126,7 +128,7 @@ class BookListView extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 16),
-            height: 180,
+            height: 150,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: books.length,
@@ -178,11 +180,15 @@ class CustomBanner extends StatelessWidget {
               children: [
                 Text(
                   'BOOKS PAGE',
+                  style: TextStyle(
+                    fontFamily: 'PermanentMarker',
+                    color: Colors.black,
+                    fontSize: 15,
+                  ),
                 ),
                 Expanded(
                   child: Container(),
                 ),
-                Icon(Icons.search)
               ],
             ),
           ],
@@ -193,17 +199,30 @@ class CustomBanner extends StatelessWidget {
 }
 
 class CustomBottomNav extends StatelessWidget {
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Icon(Icons.refresh),
-          Icon(Icons.person_outline),
-          Icon(Icons.info_outline),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 50,
+        child: RaisedButton(
+            elevation: 5,
+            padding: EdgeInsets.all(10),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            color: Colors.white,
+            child: Text('Logout',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontFamily: 'PermanentMarker')),
+            onPressed: () {
+              auth.signOut();
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => LoginScreen()));
+            }),
       ),
     );
   }
