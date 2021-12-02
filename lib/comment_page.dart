@@ -1,12 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 
 class CommentPage extends StatefulWidget {
+
   @override
   _TestMeState createState() => _TestMeState();
 }
 
 class _TestMeState extends State<CommentPage> {
+
+
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
   List filedata = [
@@ -71,6 +75,8 @@ class _TestMeState extends State<CommentPage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Comment Page"),
@@ -85,6 +91,7 @@ class _TestMeState extends State<CommentPage> {
           withBorder: false,
           errorText: 'Comment cannot be blank',
           sendButtonMethod: () {
+
             if (formKey.currentState!.validate()) {
               print(commentController.text);
               setState(() {
@@ -112,3 +119,4 @@ class _TestMeState extends State<CommentPage> {
     );
   }
 }
+

@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 
 import 'comment_page.dart';
 import 'login_page.dart';
@@ -246,3 +244,4 @@ class LinePainter extends CustomPainter {
     return true;
   }
 }
+
