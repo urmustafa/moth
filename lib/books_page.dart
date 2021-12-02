@@ -175,7 +175,7 @@ class CustomBanner extends StatelessWidget {
       painter: LinePainter(),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 16),
-        height: 90.0,
+        height: 170.0,
         child: Column(
           children: [
             SizedBox(
@@ -183,16 +183,9 @@ class CustomBanner extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(
-                  'BOOKS PAGE',
-                  style: TextStyle(
-                    fontFamily: 'PermanentMarker',
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                ),
-                Expanded(
-                  child: Container(),
+                Image.asset(
+                  "assets/images/enjoy-your-book.png",
+                  height: 120,
                 ),
               ],
             ),

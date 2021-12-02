@@ -12,7 +12,7 @@ class RegisterPage extends StatefulWidget {
 
 class _LoginScreenState extends State<RegisterPage> {
   final _auth = FirebaseAuth.instance;
-  late String email, password;
+  late String email, password, fullName;
 
   bool isRememberMe = false;
 
@@ -56,6 +56,54 @@ class _LoginScreenState extends State<RegisterPage> {
                 color: Color(0xff5ac18e),
               ),
               hintText: 'Email',
+              hintStyle: TextStyle(color: Colors.black38),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget buildFullName() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Full Name',
+          style: TextStyle(
+            fontFamily: 'PermanentMarker',
+            color: Colors.white,
+            fontSize: 16,
+          ),
+        ),
+        SizedBox(height: 10),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black87, blurRadius: 6, offset: Offset(0, 2)),
+              ]),
+          height: 60,
+          child: TextField(
+            keyboardType: TextInputType.name,
+            textAlign: TextAlign.left,
+            onChanged: (value) {
+              fullName = value;
+            },
+            style: TextStyle(
+              color: Colors.black87,
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14),
+              prefixIcon: Icon(
+                Icons.person,
+                color: Color(0xff5ac18e),
+              ),
+              hintText: 'Full Name',
               hintStyle: TextStyle(color: Colors.black38),
             ),
           ),
@@ -207,15 +255,25 @@ class _LoginScreenState extends State<RegisterPage> {
                         "assets/images/logo.png",
                         height: 200,
                       ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: Container(
+                          padding: const EdgeInsets.all(0.0),
+                          width: 10.0,
+                          height: 10.0,
+                        ), //Container
+                      ), //Padding
                       Text(
-                        'Register',
+                        'REGISTER',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
-                            fontFamily: 'PermanentMarker'),
+                            fontFamily: 'Comfortaa'),
                       ),
                       SizedBox(height: 50),
                       buildEmail(),
+                      SizedBox(height: 20),
+                      buildFullName(),
                       SizedBox(height: 20),
                       buildPassword(),
                       SizedBox(height: 20),

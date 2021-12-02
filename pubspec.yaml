@@ -84,11 +84,16 @@ flutter:
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
+  #         weight: 700
+
   fonts:
     - family: PermanentMarker
       fonts:
         - asset: assets/fonts/PermanentMarker-Regular.ttf
-  #         weight: 700
-  #
+    - family: Comfortaa
+      fonts:
+        - asset: assets/fonts/Comfortaa-Regular.ttf
+
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

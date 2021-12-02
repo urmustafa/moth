@@ -229,12 +229,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         "assets/images/logo.png",
                         height: 200,
                       ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: Container(
+                          padding: const EdgeInsets.all(0.0),
+
+                          width: 10.0,
+                          height: 10.0,
+                        ), //Container
+                      ), //Padding
                       Text(
-                        'Sign In',
+                        'SIGN IN',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
-                            fontFamily: 'PermanentMarker'),
+                            fontFamily: 'Comfortaa'),
                       ),
                       SizedBox(height: 50),
                       buildEmail(),
