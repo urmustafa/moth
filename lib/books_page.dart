@@ -3,9 +3,102 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 import 'comment_page.dart';
 import 'login_page.dart';
+/*
+void main() {
+  runApp(DrawerApp());
+}
+*/
+/*
+
+class DrawerApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: "Drawer menü",
+      home: Scaffold(
+        drawer: Drawer(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(width: 15,
+                    ),
+                    Text("Home",
+                      style: TextStyle(fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(width: 15,
+                    ),
+                    Text("Profil",
+                      style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(width: 15,
+                    ),
+                    Text("Log out",
+                      style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+            ],
+          ),
+        ),
+        appBar: AppBar(
+          title: Text("Drwer menü kullanımı"),
+
+        ),
+        body: Center(
+          child: Text("Örnek drwer uygulaması"),
+        ),
+      ),
+    );
+
+  }
+
+}
+*/
 
 class BooksPage extends StatelessWidget {
   @override
@@ -198,27 +291,80 @@ class CustomBottomNav extends StatelessWidget {
   final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 50,
-        child: RaisedButton(
-            elevation: 5,
-            padding: EdgeInsets.all(10),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-            color: Colors.white,
-            child: Text('Logout',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontFamily: 'PermanentMarker')),
-            onPressed: () {
-              auth.signOut();
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => LoginScreen()));
-            }),
+    return MaterialApp(
+      home: Scaffold(
+        drawer: Drawer(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Home",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Profil",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Log out",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -244,4 +390,3 @@ class LinePainter extends CustomPainter {
     return true;
   }
 }
-
